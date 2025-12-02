@@ -1,20 +1,17 @@
 package com.Event.EventClean.core.entities;
 
-import jakarta.persistence.*;
 import jdk.jfr.EventType;
-import lombok.*;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public record Event(
         Long id,
         String name,
         String description,
-        String identity,
+        String identityEvent,
         LocalDateTime startTime,
         LocalDateTime finishTime,
-        String local,
+        String localEvent,
         Integer capacity,
         String manager,
         EventType type) {}

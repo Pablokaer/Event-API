@@ -1,6 +1,6 @@
-package com.Event.EventClean.core.enum
+package com.Event.EventClean.core.enums;
 
-enum class EventType {
+public enum EventType {
     Concert,
     Workshop,
     Lecture,
