@@ -6,4 +6,5 @@ public interface newEventCase {
 
     public Event execute(Event event);
 
+
 }
