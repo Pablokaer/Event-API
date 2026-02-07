@@ -1,6 +1,6 @@
 package com.Event.EventClean.core.entities;
 
-import jdk.jfr.EventType;
+import com.Event.EventClean.core.enums.EventType;
 
 import java.time.LocalDateTime;
 

@@ -1,6 +1,6 @@
 package com.Event.EventClean.infra.dtos;
 
-import jdk.jfr.EventType;
+import com.Event.EventClean.core.enums.EventType;
 
 import java.time.LocalDateTime;
 
