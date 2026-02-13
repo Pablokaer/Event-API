@@ -37,5 +37,4 @@ public class EventDtoMapper {
                 eventDto.type()
         );
     }
-
 }

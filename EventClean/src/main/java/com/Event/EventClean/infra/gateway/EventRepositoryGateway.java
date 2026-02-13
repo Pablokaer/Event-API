@@ -9,6 +9,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Component
 @RequiredArgsConstructor
 public class EventRepositoryGateway implements EventGateway {
@@ -23,6 +25,9 @@ public class EventRepositoryGateway implements EventGateway {
         return mapper.toDomain(newEvent);
     }
 
-
+    @Override
+    public List<Event> searchEvents() {
+        return eventRepository.findAll().stream().map(mapper::toDomain).toList();
+    }
 
 }
