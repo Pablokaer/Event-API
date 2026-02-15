@@ -6,9 +6,12 @@ import com.Event.EventClean.core.useCases.SearchEventCase;
 import com.Event.EventClean.infra.dtos.EventDto;
 import com.Event.EventClean.infra.mapper.EventDtoMapper;
 import com.Event.EventClean.infra.persistency.EventRepository;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 @RestController
@@ -29,12 +32,15 @@ public class EventController {
     }
 
     @PostMapping("/createevent")
-    public EventDto createEvent(@RequestBody EventDto eventDto){
+    public ResponseEntity<Map<String, Object>> createEvent(@RequestBody EventDto eventDto){
         Event newEvent = newEventCase.execute(eventDtoMapper.toDomain(eventDto));
-        return eventDtoMapper.toDto(newEvent);
+        Map<String, Object> response = new HashMap<>();
+        response.put("Message: ", "Event successfully registered.");
+        response.put("Data: ", eventDtoMapper.toDto(newEvent));
+        return ResponseEntity.ok(response);
     }
 
-    @GetMapping
+    @GetMapping("/searchevents")
     public List<EventDto> searchEvents(){
         return searchEventCase.execute().stream().map(eventDtoMapper::toDto).collect(Collectors.toList());
     }
