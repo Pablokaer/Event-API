@@ -1,7 +1,5 @@
 package com.Event.EventClean.infra.exceptions;
 
-
-
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.http.HttpStatus;

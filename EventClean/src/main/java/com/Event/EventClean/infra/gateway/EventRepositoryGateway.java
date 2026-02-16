@@ -7,9 +7,9 @@ import com.Event.EventClean.infra.persistency.EventEntity;
 import com.Event.EventClean.infra.persistency.EventRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Component
 @RequiredArgsConstructor
@@ -28,6 +28,11 @@ public class EventRepositoryGateway implements EventGateway {
     @Override
     public List<Event> searchEvents() {
         return eventRepository.findAll().stream().map(mapper::toDomain).toList();
+    }
+
+    @Override
+    public Optional<Event> filterById(String identityEvent) {
+        return eventRepository.findByIdentityEvent(identityEvent);
     }
 
 }
